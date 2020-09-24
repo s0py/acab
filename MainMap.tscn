@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://TileMap.gd" type="Script" id=1]
 [ext_resource path="res://acab2/acab2.tres" type="TileSet" id=2]
@@ -9,12 +9,17 @@
 [ext_resource path="res://ui/TopBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Node.gd" type="Script" id=8]
 [ext_resource path="res://ui/sidebar.png" type="Texture" id=9]
-[ext_resource path="res://ui/big_button.png" type="Texture" id=10]
+[ext_resource path="res://ui/long_button.png" type="Texture" id=10]
 [ext_resource path="res://ui/exit_button.png" type="Texture" id=11]
 [ext_resource path="res://SideBarTitle.gd" type="Script" id=12]
 [ext_resource path="res://Button2Label.gd" type="Script" id=13]
 [ext_resource path="res://Button1Label.gd" type="Script" id=14]
 [ext_resource path="res://fonts/PeanutMoney.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://CloseButton.gd" type="Script" id=16]
+[ext_resource path="res://CloseButtonCollisionShape2D.gd" type="Script" id=17]
+[ext_resource path="res://CloseButtonArea2D.gd" type="Script" id=18]
+[ext_resource path="res://SideBar.gd" type="Script" id=19]
+[ext_resource path="res://SideBarBody.gd" type="Script" id=20]
 
 [sub_resource type="GDScript" id=1]
 
@@ -23,15 +28,18 @@ size = 32
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 5 )
+
 [sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 32
-font_data = ExtResource( 5 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 17.6823, 17.9131 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 48
 font_data = ExtResource( 5 )
 
@@ -87,15 +95,16 @@ margin_top = -194.771
 margin_right = -162.284
 margin_bottom = 265.229
 texture = ExtResource( 9 )
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button1" type="NinePatchRect" parent="Camera2D/SideBar"]
-margin_left = 20.3454
-margin_top = 75.2531
-margin_right = 100.345
-margin_bottom = 125.253
+margin_left = 45.0607
+margin_top = 80.4142
+margin_right = 285.061
+margin_bottom = 130.414
 texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -106,28 +115,31 @@ margin_left = 6.0
 margin_top = 5.0
 margin_right = 75.0
 margin_bottom = 38.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Test"
 align = 1
 valign = 1
 script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button2" type="NinePatchRect" parent="Camera2D/SideBar"]
-margin_left = 119.987
-margin_top = 74.8758
-margin_right = 199.987
-margin_bottom = 124.876
+margin_left = 45.4064
+margin_top = 145.197
+margin_right = 285.406
+margin_bottom = 195.197
 texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button2Label" type="Label" parent="Camera2D/SideBar/Button2"]
-margin_left = 7.0
-margin_top = 6.0
-margin_right = 75.0
-margin_bottom = 40.0
-custom_fonts/font = SubResource( 5 )
+margin_left = 7.88376
+margin_top = 5.16436
+margin_right = 79.8838
+margin_bottom = 39.1644
+custom_fonts/font = SubResource( 4 )
 text = "ACAB"
 align = 1
 valign = 1
@@ -139,31 +151,35 @@ margin_top = 20.2397
 margin_right = 310.175
 margin_bottom = 60.2397
 texture = ExtResource( 11 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButtonArea2D" type="Area2D" parent="Camera2D/SideBar/CloseButton"]
+position = Vector2( 15.7322, 16.4814 )
+script = ExtResource( 18 )
+
+[node name="CloseButtonCollisionShape2D" type="CollisionShape2D" parent="Camera2D/SideBar/CloseButton/CloseButtonArea2D"]
+position = Vector2( 1.70853, 0.840897 )
+shape = SubResource( 7 )
+script = ExtResource( 17 )
 
 [node name="SideBarTitle" type="Label" parent="Camera2D/SideBar"]
 margin_left = 25.4271
 margin_top = 16.4217
 margin_right = 65.4271
 margin_bottom = 64.4217
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 script = ExtResource( 12 )
 
 [node name="SideBarBody" type="Label" parent="Camera2D/SideBar"]
-margin_left = 26.0
-margin_top = 143.0
+margin_left = 24.0
+margin_top = 200.0
 margin_right = 282.0
 margin_bottom = 437.0
 custom_fonts/font = SubResource( 6 )
-text = "Fucking, here is some text.
-Fuck the Police.
-
-Kill Everyone Now
-Condone First Degree Murder
-Advocate Cannabalism
-EAT SHIT
-
-Filth are my Politics
-Filt is  M Y  L I F E !"
+script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -36,9 +36,9 @@ __meta__ = {
 }
 
 [node name="Turn" type="Label" parent="."]
-margin_left = 363.443
+margin_left = 341.443
 margin_top = 11.321
-margin_right = 547.443
+margin_right = 525.443
 margin_bottom = 75.321
 custom_fonts/font = SubResource( 1 )
 script = ExtResource( 8 )

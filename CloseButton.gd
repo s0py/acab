@@ -1,13 +1,13 @@
-extends Label
+extends NinePatchRect
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
+
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	text = get_node("/root/MainMap/Camera2D/SideBar").button2_text
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
