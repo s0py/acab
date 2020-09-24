@@ -1,0 +1,172 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://TileMap.gd" type="Script" id=1]
+[ext_resource path="res://acab2/acab2.tres" type="TileSet" id=2]
+[ext_resource path="res://Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://Label.gd" type="Script" id=4]
+[ext_resource path="res://fonts/DoubleHomicide.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://ui/Interface.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/TopBar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Node.gd" type="Script" id=8]
+[ext_resource path="res://ui/sidebar.png" type="Texture" id=9]
+[ext_resource path="res://ui/big_button.png" type="Texture" id=10]
+[ext_resource path="res://ui/exit_button.png" type="Texture" id=11]
+[ext_resource path="res://SideBarTitle.gd" type="Script" id=12]
+[ext_resource path="res://Button2Label.gd" type="Script" id=13]
+[ext_resource path="res://Button1Label.gd" type="Script" id=14]
+[ext_resource path="res://fonts/PeanutMoney.ttf" type="DynamicFontData" id=15]
+
+[sub_resource type="GDScript" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 15 )
+
+[node name="MainMap" type="Node2D"]
+position = Vector2( -6.34961, 6.34961 )
+script = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 518.085, 29.2912 )
+mode = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 320, 192 )
+format = 1
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Camera2D"]
+visible = false
+margin_left = -492.0
+margin_top = -288.0
+margin_right = -372.0
+margin_bottom = -215.0
+custom_fonts/font = SubResource( 2 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Interface" parent="Camera2D" instance=ExtResource( 6 )]
+margin_left = 512.246
+margin_top = 299.453
+margin_right = 512.246
+margin_bottom = 299.453
+
+[node name="TopBar" parent="Camera2D" instance=ExtResource( 7 )]
+margin_left = -512.046
+margin_top = -299.677
+margin_right = 511.954
+margin_bottom = -219.677
+
+[node name="SideBar" type="NinePatchRect" parent="Camera2D"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -492.284
+margin_top = -194.771
+margin_right = -162.284
+margin_bottom = 265.229
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="NinePatchRect" parent="Camera2D/SideBar"]
+margin_left = 20.3454
+margin_top = 75.2531
+margin_right = 100.345
+margin_bottom = 125.253
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1Label" type="Label" parent="Camera2D/SideBar/Button1"]
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 75.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 4 )
+text = "Test"
+align = 1
+valign = 1
+script = ExtResource( 14 )
+
+[node name="Button2" type="NinePatchRect" parent="Camera2D/SideBar"]
+margin_left = 119.987
+margin_top = 74.8758
+margin_right = 199.987
+margin_bottom = 124.876
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2Label" type="Label" parent="Camera2D/SideBar/Button2"]
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 75.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 5 )
+text = "ACAB"
+align = 1
+valign = 1
+script = ExtResource( 13 )
+
+[node name="CloseButton" type="NinePatchRect" parent="Camera2D/SideBar"]
+margin_left = 275.175
+margin_top = 20.2397
+margin_right = 310.175
+margin_bottom = 60.2397
+texture = ExtResource( 11 )
+
+[node name="SideBarTitle" type="Label" parent="Camera2D/SideBar"]
+margin_left = 25.4271
+margin_top = 16.4217
+margin_right = 65.4271
+margin_bottom = 64.4217
+custom_fonts/font = SubResource( 3 )
+script = ExtResource( 12 )
+
+[node name="SideBarBody" type="Label" parent="Camera2D/SideBar"]
+margin_left = 26.0
+margin_top = 143.0
+margin_right = 282.0
+margin_bottom = 437.0
+custom_fonts/font = SubResource( 6 )
+text = "Fucking, here is some text.
+Fuck the Police.
+
+Kill Everyone Now
+Condone First Degree Murder
+Advocate Cannabalism
+EAT SHIT
+
+Filth are my Politics
+Filt is  M Y  L I F E !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource( 8 )

@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://fonts/DoubleHomicide.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/topbar.png" type="Texture" id=2]
+[ext_resource path="res://ui/happiness.png" type="Texture" id=3]
+[ext_resource path="res://ui/bread.png" type="Texture" id=4]
+[ext_resource path="res://ui/molotovs.png" type="Texture" id=5]
+[ext_resource path="res://ui/TopBarNode.gd" type="Script" id=6]
+[ext_resource path="res://ui/Food.gd" type="Script" id=7]
+[ext_resource path="res://ui/Turn.gd" type="Script" id=8]
+[ext_resource path="res://ui/Happiness.gd" type="Script" id=9]
+[ext_resource path="res://ui/Molotovs.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 1 )
+
+[node name="TopBarNode" type="NinePatchRect"]
+margin_right = 1024.0
+margin_bottom = 80.0
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TownName" type="Label" parent="."]
+margin_left = 90.3553
+margin_top = 5.75737
+margin_right = 274.355
+margin_bottom = 69.7574
+custom_fonts/font = SubResource( 1 )
+text = "CHAZ"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Turn" type="Label" parent="."]
+margin_left = 363.443
+margin_top = 11.321
+margin_right = 547.443
+margin_bottom = 75.321
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Food" type="Label" parent="."]
+margin_left = 638.631
+margin_top = 11.7876
+margin_right = 822.631
+margin_bottom = 75.7876
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Molotovs" type="Label" parent="."]
+margin_left = 796.312
+margin_top = 14.7393
+margin_right = 980.312
+margin_bottom = 78.7393
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Happiness" type="Label" parent="."]
+margin_left = 917.198
+margin_top = 16.1032
+margin_right = 1101.2
+margin_bottom = 80.1032
+custom_fonts/font = SubResource( 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Food2" type="NinePatchRect" parent="."]
+margin_left = 583.582
+margin_top = 23.5451
+margin_right = 625.582
+margin_bottom = 53.5451
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Molotovs2" type="NinePatchRect" parent="."]
+margin_left = 738.0
+margin_top = 12.0
+margin_right = 774.0
+margin_bottom = 58.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Happiness2" type="NinePatchRect" parent="."]
+margin_left = 879.518
+margin_top = 26.9271
+margin_right = 909.518
+margin_bottom = 56.9271
+texture = ExtResource( 3 )
