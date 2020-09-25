@@ -30,7 +30,7 @@ margin_top = 5.75737
 margin_right = 274.355
 margin_bottom = 69.7574
 custom_fonts/font = SubResource( 1 )
-text = "CHAZ"
+text = "Town"
 __meta__ = {
 "_edit_use_anchors_": false
 }

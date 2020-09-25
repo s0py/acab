@@ -57,7 +57,8 @@ func _ready():
 		curr_l += 1
 		#find the chaz tile
 		#update the location of all of the citizens to start the game
-		
+	
+	# this generates the array of citizens. it gives each a name, job, and location
 	for initial_citizen in starting_set:
 		var poe_first_name = first_names[randi() % first_names.size()]
 		var poe_last_name = last_names[randi() % last_names.size()]
@@ -78,8 +79,9 @@ func shuffle_list(list):
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
-		print(get_cellv(world_to_map(event.position)))
-		print(event.position)
+		print(get_cellv(world_to_map(event.global_position)))
+		print(event.global_position)
+		print(world_to_map(event.global_position))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -4,7 +4,7 @@ extends Camera2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var camera_position = Vector2(0,1000)
+var camera_position = Vector2(0,0)
 var dragstart = Vector2()
 var drag = false
 
