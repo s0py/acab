@@ -76,7 +76,10 @@ func shuffle_list(list):
 		indexList.remove(x)
 	return shuffledList
 
-
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
+		print(get_cellv(event.position))
+		print(event.position)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
